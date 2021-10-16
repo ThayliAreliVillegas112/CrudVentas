@@ -1,0 +1,45 @@
+{% extends('base.html.twig') %}
+
+{% block title %}
+
+Listado de Ordenes!
+
+{% endblock %}
+
+{% block stylesheets %} 
+
+{% endblock %}
+{% block body %}
+    <table class="table table-striped">
+        <div>
+            <h4 class="text-center">Lista de Ordenes</h4>
+        </div>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Order Date</th>
+                <th>Required Date</th>
+                <th>Shipped date</th>
+                <th>Estado</th>
+                <th>Comentarios</th>                
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for orders in lista %}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{orders.orderdate}}</td>
+                    <td>{{orders.requireddate}}</td>
+                    <td>{{orders.shippeddate}}</td>
+                    <td>{{orders.status}}</td>
+                    <td>{{orders.comments}}</td>                   
+                    <td>
+                        <button class="btn btn-outline-warning">Actualizar</button>
+                        <button class="btn btn-outline-danger">Eliminar</button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>   
+{% endblock %}

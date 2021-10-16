@@ -1,0 +1,39 @@
+{% extends('base.html.twig') %}
+
+{% block title %}
+
+Listado de Linea de productos
+
+{% endblock %}
+
+{% block stylesheets %} 
+
+{% endblock %}
+{% block body %}
+    <table class="table table-striped">
+        <div>
+            <h4 class="text-center">Lista de Linea de productos</h4>
+        </div>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Descripción</th>
+                <th>Descripción html</th>
+                <th>Imagen</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for productlines in lista %}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{productlines.textdescription}}</td>
+                    <td>{{productlines.htmldescription}}</td>
+                    <td>{{productlines.image}}</td>
+                    <td><button class="btn btn-outline-warning">Actualizar</button></td>
+                    <td><button class="btn btn-outline-danger">Eliminar</button></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>    
+{% endblock %}

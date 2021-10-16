@@ -1,0 +1,39 @@
+{% extends('base.html.twig') %}
+
+{% block title %}
+
+<title>Listado de Pagos</title>
+
+{% endblock %}
+
+{% block stylesheets %} 
+
+{% endblock %}
+{% block body %}
+    <table class="table table-striped">
+        <div>
+            <h4 class="text-center">Lista de Pagos</h4>
+        </div>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Número de verificación</th>
+                <th>Fecha de pago</th>
+                <th>Monto</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for payments in lista %}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{payments.checknumber}}</td>
+                    <td>{{payments.paymentdate}}</td>
+                    <td>{{payments.amount}}</td>
+                    <td><button class="btn btn-outline-warning">Actualizar</button></td>
+                    <td><button class="btn btn-outline-danger">Eliminar</button></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table> 
+{% endblock %}

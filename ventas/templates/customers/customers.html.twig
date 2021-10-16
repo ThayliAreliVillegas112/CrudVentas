@@ -1,0 +1,55 @@
+{% extends('base.html.twig') %}
+
+{% block title %}
+
+Listado de Usuarios!
+
+{% endblock %}
+
+{% block stylesheets %} 
+
+{% endblock %}
+{% block body %}
+    <table class="table table-striped">
+        <div>
+            <h4 class="text-center">Lista de Clientes</h4>
+        </div>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre cliente</th>
+                <th>Apellido 2</th>
+                <th>Apellido 1</th>
+                <th>Teléfono</th>
+                <th>Dirección 1</th>
+                <th>Dirección 2</th>
+                <th>Ciudad</th>
+                <th>Estado</th>
+                <th>Código potal</th>
+                <th>País</th>
+                <th>Credit limit</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customers in lista %}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{customers.customername}}</td>
+                    <td>{{customers.contactfirstname}}</td>
+                    <td>{{customers.contactlastname}}</td>
+                    <td>{{customers.phone}}</td>
+                    <td>{{customers.addressline1}}</td>
+                    <td>{{customers.addressline2}}</td>
+                    <td>{{customers.city}}</td>
+                    <td>{{customers.state}}</td>
+                    <td>{{customers.postalcode}}</td>
+                    <td>{{customers.country}}</td>
+                    <td>{{customers.creditlimit}}</td>
+                    <td><button class="btn btn-outline-warning">Actualizar</button></td>
+                    <td><button class="btn btn-outline-danger">Eliminar</button></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>    
+{% endblock %}

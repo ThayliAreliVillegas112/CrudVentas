@@ -1,0 +1,51 @@
+{% extends('base.html.twig') %}
+
+{% block title %}
+
+Listado de Offices
+
+{% endblock %}
+
+{% block stylesheets %} 
+
+{% endblock %}
+{% block body %}
+    <table class="table table-striped">
+        <div>
+            <h4 class="text-center">Lista de Offices</h4>
+        </div>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Ciudad</th>
+                <th>Teléfono</th>
+                <th>Dirección 1</th>
+                <th>Dirección 2</th>
+                <th>Estado</th>
+                <th>País</th>
+                <th>Código potal</th>
+                <th>Territorio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for offices in lista %}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{offices.city}}</td>
+                    <td>{{offices.phone}}</td>
+                    <td>{{offices.addressline1}}</td>
+                    <td>{{offices.addressline2}}</td>
+                    <td>{{offices.state}}</td>
+                    <td>{{offices.country}}</td>
+                    <td>{{offices.postalcode}}</td>
+                    <td>{{offices.territory}}</td>
+                    <td>
+                        <button class="btn btn-outline-warning">Actualizar</button>
+                        <button class="btn btn-outline-danger">Eliminar</button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>    
+{% endblock %}
